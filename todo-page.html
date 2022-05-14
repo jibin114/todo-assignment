@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your To Do list</title>
+    <script src="https://kit.fontawesome.com/f83e6b517a.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container col-lg-9">
+
+        <div class="row">
+          <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <div  class="col d-flex justify-content-end">
+                <ul class="nav nav-pills">
+                  <li class="nav-item"><a  onclick="getData('null',0)" class="nav-link active fw-bold " aria-current="page">All Tasks</a></li>
+                  <li class="nav-item"><a href="./index.html" class="nav-link">Sign Out</a></li>
+                  <li class="nav-item"><a href="./index.html" class="nav-link">Home</a></li>
+                </ul>
+            </div>
+          </header>
+        </div>
+
+        <div style="margin: 5% 0 0 20% ; width: 60%;" class="fixed-top" id="taskSuccessDisplay"></div>
+
+      </div>
+    </header>
+
+    
+    <div class="b-example-divider"></div>
+
+    <div class="container mt-4 mb-5">
+
+      <div class="row">
+        <h3  class="display-5 d-flex fw-bold justify-content-center">Tasks</h3>
+        <div id="toHide" class="text-center">(Click the <strong>All Tasks</strong> button on Navigation bar or choose a filter to view your tasks)</div>
+      </div>
+      <br>
+      <div class="row gx-5 d-flex justify-content-center">
+
+        <div class="col-md-3  shadow-sm  rounded bg-opacity-25 bg-secondary">
+          <nav class=" nav flex-column  mb-5" >
+            <br>
+            <h5>Filter:</h5>
+            <br>
+            <label for="statusSelect"> Completion:</label>
+            <select   class="rounded fw-bold nav-link text-black justify-content-center " id="statusSelect" onchange= "getData(this.value, parseInt(document.getElementById('userSelect').value))">
+              <option value=null>Choose Status</option>
+              <option value=true>Finished</option>
+              <option value=false>Not Finished</option>
+            </select>
+            <br>
+            <label for="userSelect"> User:</label>
+            <select class="rounded fw-bold nav-link text-black justify-content-center " id="userSelect" onchange="getData(document.getElementById('statusSelect').value, parseInt(this.value))"> <!-- This value refers to the value selected as user -->
+              <option value="0">Choose User</option>
+              <option value="1">User 1</option>
+              <option value="2">User 2</option>
+              <option value="3">User 3</option>
+              <option value="4">User 4</option>
+              <option value="5">User 5</option>
+              <option value="6">User 6</option>
+              <option value="7">User 7</option>
+              <option value="8">User 8</option>
+              <option value="9">User 9</option>
+              <option value="10">User 10</option>
+            </select>
+          </nav>
+        </div>
+
+        <div class = "col-md-9  bg rounded ">
+          <table style="visibility: hidden;"  class="table  table-striped table-hover" id="table">
+            <thead>
+              <tr>
+                <th scope="col"><h5> Sl. No.</h5></th>
+                <th scope="col"><h5> #</h5></th>
+                <th scope="col"><h5>Task Title</h5></th>
+                <th scope="col"><h5>Status</h5></th>
+              </tr>
+            </thead>
+            <tbody id="todoBody">
+
+              <!-- Populate json data here -->
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+   
+
+    <!-- Bootstrap JS --> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/todo-data.js"></script>
+  </body>
+</html>
